@@ -23,3 +23,9 @@ SELECT depname, empno, salary, avg(salary) OVER (PARTITION BY depname) FROM emps
 
 --  The PARTITION BY list within OVER specifies dividing the rows into groups, 
 --  or partitions, that share the same values of the PARTITION BY expression(s)
+
+-- You can also control the order in which rows are processed by window functions 
+-- using ORDER BY within OVER. (The window ORDER BY does not even have to match the 
+-- order in which the rows are output.) Here is an example:
+
+SELECT depname, empno, salary, rank() OVER (PARTITION BY depname ORDER BY salary DESC) FROM empsalary;
