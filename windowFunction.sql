@@ -20,3 +20,6 @@ SELECT depname, empno, salary, avg(salary) OVER (PARTITION BY depname) FROM emps
  sales     |     3 |   4800 | 4866.6666666666666667
  sales     |     1 |   5000 | 4866.6666666666666667
  sales     |     4 |   4800 | 4866.6666666666666667
+
+--  The PARTITION BY list within OVER specifies dividing the rows into groups, 
+--  or partitions, that share the same values of the PARTITION BY expression(s)
