@@ -7,3 +7,6 @@ ntile(num_buckets integer)	integer	integer ranging from 1 to the argument value,
 first_value(value any)	same type as value	returns value evaluated at the row that is the first row of the window frame
 last_value(value any)	same type as value	returns value evaluated at the row that is the last row of the window frame
 nth_value(value any, nth integer)	same type as value	returns value evaluated at the row that is the nth row of the window frame (counting from 1); null if no such row
+
+-- All of the functions listed above depend on the sort ordering specified by the ORDER BY clause of the associated window definition.
+--  Rows that are not distinct in the ORDER BY ordering are said to be peers; the four ranking functions are defined so that they give the same answer for any two peer rows.
